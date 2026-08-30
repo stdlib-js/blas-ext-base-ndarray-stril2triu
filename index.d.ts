@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,17 +16,29 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { float32ndarray, typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Reflect the lower triangular part of a single-precision floating-point matrix `A` into the upper triangular part of another matrix `B`.
+* Reflects the lower triangular part of a single-precision floating-point matrix `A` into the upper triangular part of another matrix `B`.
 *
-* @module @stdlib/blas-ext-base-ndarray-stril2triu
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a two-dimensional input ndarray corresponding to `A`.
+*     -   a two-dimensional output ndarray corresponding to `B`.
+*     -   a zero-dimensional ndarray specifying the diagonal above which to ignore.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns output ndarray
 *
 * @example
 * var Float32Matrix = require( '@stdlib/ndarray-matrix-float32' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var stril2triu = require( '@stdlib/blas-ext-base-ndarray-stril2triu' );
 *
 * var A = new Float32Matrix( [ [ 1.0, 2.0 ], [ 3.0, 4.0 ] ] );
 * var B = new Float32Matrix( [ [ 0.0, 0.0 ], [ 0.0, 0.0 ] ] );
@@ -41,12 +53,9 @@
 * var bool = ( out === B );
 * // returns true
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function stril2triu( arrays: [ float32ndarray, float32ndarray, typedndarray<number> ] ): float32ndarray;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = stril2triu;
